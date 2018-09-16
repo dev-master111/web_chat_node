@@ -1,0 +1,49 @@
+{
+  "name": "Float",
+  "decription": "Float api",
+  "private": true,
+  "devDependencies": {
+    "nodemon": "^1.8.1",
+    "supertest": "^0.15.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "seed": "node tasks/seed.js",
+    "start": "nodemon --exec ./node_modules/.bin/babel-node server.js",
+    "test": "mocha -R spec --compilers js:babel/register --recursive",
+    "build": "babel . --optional runtime --ignore node_modules,mongo-express,public --out-dir dist",
+    "lint": "eslint api"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "babel": "^5.6.14",
+    "babel-runtime": "^5.8.20",
+    "bluebird": "^2.9.34",
+    "body-parser": "^1.13.2",
+    "bower": "^1.3.12",
+    "cors": "*",
+    "eslint": "^2.4.0",
+    "express": "^4.13.1",
+    "express-promise-router": "0.0.9",
+    "express-router": "0.0.1",
+    "jsonwebtoken": "~5.0.4",
+    "lodash": "^3.10.1",
+    "moment": "^2.22.1",
+    "mongoose": "*",
+    "mongoose-model-update": "^1.5.0",
+    "mongoose-timestamp": "^0.4.0",
+    "morgan": "~1.6.0",
+    "multer": "^0.1.6",
+    "node-rest-client": "^1.8.0",
+    "passport": "~0.2.2",
+    "passport-local": "~1.0.0",
+    "pify": "^2.3.0",
+    "q": "^1.4.1",
+    "socket.io": "^2.1.1",
+    "through": "~2.3.7",
+    "winston": "~1.0.1",
+    "winston-papertrail": "^1.0.2"
+  }
+}
