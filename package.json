@@ -11,10 +11,11 @@
   },
   "scripts": {
     "seed": "node tasks/seed.js",
-    "start": "nodemon --exec ./node_modules/.bin/babel-node server.js",
+    "start": "node dist/server.js",
     "test": "mocha -R spec --compilers js:babel/register --recursive",
     "build": "babel . --optional runtime --ignore node_modules,mongo-express,public --out-dir dist",
-    "lint": "eslint api"
+    "lint": "eslint api",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "async": "^0.9.0",
