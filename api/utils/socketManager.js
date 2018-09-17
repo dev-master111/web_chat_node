@@ -1,7 +1,8 @@
 // Socket.io Handler
-var server = require('http').createServer();
+var app = require('express')();
+var server = require('http').Server(app);
 var io = require('socket.io')(server);
-server.listen(3001);
+server.listen(80);
 
 const moment = require('moment');
 const messages = [];
