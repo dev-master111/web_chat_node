@@ -73,10 +73,10 @@ app.get('/', function (req, res) {
 });
 // ----------------------------------
 
-app.listen(process.env.PORT || 3300);
+app.listen(process.env.PORT || 5000);
 
 if (process.env.PORT === undefined) {
-  console.log("Server Started at port : " + 3300);
+  console.log("Server Started at port : " + 5000);
 }
 else {
   console.log("Server Started at port : " + process.env.PORT);
