@@ -55,29 +55,37 @@ app.use(function (req, res, next) {
   next();
 });
 
-// WebSocker Server Management
-messageSocketStart();
-
-require('./config/routes')(app, passport);
-
-app.use(function (err, req, res, next) {
-  if (err) {
-    console.log(err);
-    if (typeof err.status != "undefined") res.status(err.status);
-    res.send(err);
-  }
-});
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+server.listen(80);
 
 app.get('/', function (req, res) {
-//  res.sendfile('./public/index.html');
+  res.sendFile(__dirname + '/index.html');
 });
-// ----------------------------------
 
-app.listen(process.env.PORT || 5000);
+// WebSocker Server Management
+messageSocketStart(io);
 
-if (process.env.PORT === undefined) {
-  console.log("Server Started at port : " + 5000);
-}
-else {
-  console.log("Server Started at port : " + process.env.PORT);
-}
+// require('./config/routes')(app, passport);
+
+// app.use(function (err, req, res, next) {
+//   if (err) {
+//     console.log(err);
+//     if (typeof err.status != "undefined") res.status(err.status);
+//     res.send(err);
+//   }
+// });
+
+// app.get('/', function (req, res) {
+// //  res.sendfile('./public/index.html');
+// });
+// // ----------------------------------
+
+// app.listen(process.env.PORT || 5000);
+
+// if (process.env.PORT === undefined) {
+//   console.log("Server Started at port : " + 5000);
+// }
+// else {
+//   console.log("Server Started at port : " + process.env.PORT);
+// }

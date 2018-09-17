@@ -1,16 +1,10 @@
 // Socket.io Handler
-var cors = require('cors');
-var app = require('express')();
-app.use(cors());
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
-server.listen(80);
 
 const moment = require('moment');
 const messages = [];
 const userList = [];
 
-export const messageSocketStart = () => {
+export const messageSocketStart = (io) => {
   io.on('connection', socket => {
     try {
       // Handler for action event. (Connected, Ack of a message)
