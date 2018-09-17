@@ -1,5 +1,7 @@
 // Socket.io Handler
+import cors from 'cors';
 var app = require('express')();
+app.use(cors());
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 server.listen(80);
